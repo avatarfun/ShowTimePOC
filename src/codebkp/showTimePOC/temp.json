@@ -1,0 +1,32 @@
+{
+  "comEvent": {
+    "roomId": "1553853450127",
+    "serviceId": "ST",
+    "request": {
+      "processMessage": {
+        "eventParams": {
+          "appProperty": {
+            "name": "ase",
+            "role": "Member"
+          },
+          "permissionProperties": {
+            "publish": true,
+            "subscribe": true,
+            "screenshare": true,
+            "annotate": true
+          }
+        },
+        "eventType": {
+          "modEvent": {
+            "event": "CREATE_USER"
+          }
+        },
+        "relay": {
+          "relayEndpoints": {
+            "roomId": "1553853450127"
+          }
+        }
+      }
+    }
+  }
+}

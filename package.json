@@ -1,0 +1,14 @@
+{
+  "name": "ShowTimePOC",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-cli start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@zohodesk/react-cli": "0.0.1-beta.16"
+  }
+}
