@@ -9,18 +9,71 @@
     <script src="/app/js/vendor.js"></script>
     <script src="/app/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js"></script>
-    <script src="https://zohoconference.com/js/mediaserver.js"></script>
+    <!-- <script src="https://zohoconference.com/js/mediaserver.js"></script>
     <script src="https://zohoconference.com/js/messagingserver.js"></script>
-    <script src="https://showtimeconf.csez.zohocorpin.com:8443/js/st_monitoring_obj.js"></script>
+    <script src="https://showtimeconf.csez.zohocorpin.com:8443/js/st_monitoring_obj.js"></script> -->
+
+    <script src="https://172.20.37.80:8443/js/mediaserver.js"></script>
+    <script src="https://172.20.37.80:8443/js/messagingserver.js"></script>
+    <script src="https://172.20.37.80:8443/js/st_monitoring_obj.js"></script>
+
     <!-- <script src="https://zohoconference.com/js/st_conference.js"></script> -->
+    <script type="text/javascript">
+      function start() {
+        var roomId = document.getElementById('zd_roomId').value;
+        zd_wrapper.roomId = roomId;
+        zd_wrapper.start();
+        IS_CORS_REQ = false;
+      }
+      function removeUser() {
+        zd_wrapper.Operations.removeUser();
+      }
+      (function() {
+        // var message = {};
+        var con = console;
+        var realLog = con.log;
+        var realInfo = con.info;
+        var realError = con.error;
+        var realException = con.exception;
+
+        con.log = function(message) {
+          _print(arguments);
+          realLog.apply(con, arguments);
+        };
+        con.info = function(message) {
+          _print(arguments);
+          realLog.apply(con, arguments);
+        };
+        con.error = function(message) {
+          _print(arguments);
+          realLog.apply(con, arguments);
+        };
+        con.exception = function(message) {
+          _print(arguments);
+          realLog.apply(con, arguments);
+        };
+        _print = function() {
+          var message = {};
+          // message[new Date().getTime()] = arguments;
+          document.getElementById('zd_log').innerHTML +=
+            '<p>' + JSON.stringify(arguments) + '</p>';
+        };
+      })();
+    </script>
   </head>
   <body>
     <!-- <video sytle="display:none;" id="previewVideo"></video> -->
-    <audio id="zd_audio" controls="controls"></audio>
+    <!-- <audio id="zd_audio" controls="controls" ></audio> -->
+    <audio id="zd_audio"></audio>
     <!-- <audio id="zd_audio" controls="controls">
       <source id="zd_audioSource" src="">
       </source>
       Your browser does not support the audio format.
     </audio> -->
+    Existing room Id -
+    <input type="text" id="zd_roomId" value="1555938141360" />
+    <button onclick="start()">Start</button>
+    <button onclick="removeUser()">RemoveUser</button>
+    <div id="zd_log"></div>
   </body>
 </html>

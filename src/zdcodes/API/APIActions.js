@@ -18,3 +18,11 @@ export function createUser(roomId, payload) {
   const actionUrl = `${providerDomain}/roomaction/${roomId}/user/create`;
   return RequestAPI(actionUrl).post('', payload);
 }
+export function getUser(roomId, userId) {
+  const actionUrl = `${providerDomain}/roomaction/${roomId}/user/${userId}`;
+  return RequestAPI(actionUrl).get();
+}
+export function deleteUser(roomId, userId) {
+  const actionUrl = `${providerDomain}/roomaction/${roomId}/user/delete/${userId}`;
+  return RequestAPI(actionUrl).post();
+}
